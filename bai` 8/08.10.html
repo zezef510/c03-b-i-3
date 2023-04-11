@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let bac1=1678
+  let bac2=1734
+  let bac3=2014
+  let bac4=2536
+  let bac5=2834
+  let bac6 =2927
+  let sodien = prompt(`nhap so dien nang tieu thu`)
+  if (sodien < 50 )
+    alert(`So tien ban phai tra la : ` + sodien*bac1);
+  else if ( sodien <= 100){
+    alert(`So tien ban phai tra la : `+ (50*bac1+(sodien-50)*bac2))
+  }
+  else if ( sodien <= 150 ){
+    alert(`So tien ban phai tra la : `+ (50*bac1+(50*bac2)+((sodien-100)*bac3)))
+  }
+  else if ( sodien <= 200 ) {
+      alert(`So tien ban phai tra la : ` + (50 * bac1 + (50 * bac2) + (50 * bac3) + ((sodien - 150) * bac4)))
+  }
+  else if ( sodien <= 250){
+      alert(`So tien ban phai tra la : ` + (50*bac1 +(50*bac2)+(50*bac3)+(50*bac4)+(sodien-200)*bac5))
+  }
+  else if (sodien <= 300){
+      alert(`So tien ban phai tra la : `+ (50*bac1+(50*bac2)+(50*bac3)+(50*bac4)+(50*bac5)+(sodien-250)*bac6))
+      }
+
+
+</script>
+</body>
+</html>
