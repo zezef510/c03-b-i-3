@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="hiển thị đầu ra1.js"></script>
+</head>
+<body>
+
+<input type="number" id="num1" placeholder="Nhập số thứ nhất">
+<input type="number" id="num2" placeholder="Nhập số thứ hai">
+<button onclick="Add()">Cộng</button>
+<button onclick="Sub()">Trừ</button>
+<button onclick="Core()">Nhân</button>
+<button onclick="Divide()">Chia</button>
+<h3>Result:</h3>
+<div id="result">2</div>
+
+
+<script>
+    function Add() {o
+        let number1 = document.getElementById("num1").value; //"7"
+        let number2 = document.getElementById("num2").value; //"9"
+        let result = Number(number1) + Number(number2); //16
+        document.getElementById("result").innerHTML = result;
+
+    }
+
+    function Sub() {
+        let number1 = document.getElementById("num1").value; //"7"
+        let number2 = document.getElementById("num2").value; //"9"
+        let result = Number(number1) - Number(number2); //16
+        document.getElementById("result").innerHTML = result;
+    }
+    function Core() {
+        let number1 = document.getElementById("num1").value; //"7"
+        let number2 = document.getElementById("num2").value; //"9"
+        let result = Number(number1) * Number(number2); //16
+        document.getElementById("result").innerHTML = result;
+    }
+        function Divide() {
+            let number1 = document.getElementById("num1").value; //"7"
+            let number2 = document.getElementById("num2").value; //"9"
+            let result = Number(number1) / Number(number2); //16
+            document.getElementById("result").innerHTML = result;}
+   /* if (x == `+`){
+        document.getElementById("result").innerHTML= `Tong la ` +(number1 + number 2) */
+    }
+
+</script>
+</body>
+</html>

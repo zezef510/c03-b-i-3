@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table>
+    <tbody>
+    <tr>
+
+        <th><label for="Amount">Amount
+        </label></th>
+        <th>From Currency</th>
+        <th>To Currency</th>
+        <th></th>
+    </tr>
+    <tr>
+        <td><input type="text" id="Amount"></td>
+        <td>
+            <select id="From">
+                <option value="VND">VND</option>
+                <option value="USD">USD</option>
+            </select>
+        </td>
+        <td>
+            <select id="To">
+                <option value="VND1">VND</option>
+                <option value="USD1">USD</option>
+            </select>
+        </td>
+        <td>
+            <button onclick="ChangeMoney()">Convert</button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<h1 id="Convert"></h1>
+<br>
+<script>
+    function ChangeMoney() {
+        let am = document.getElementById("Amount").value; //"7"
+        let to = document.getElementById("To").value;
+        let form = document.getElementById("Form").value;
+            if(to == form){}
+    }       if (to == "VND" && form == "USD"){
+    alert(am/23000)}
+</script>
+
+</body>
+</html>

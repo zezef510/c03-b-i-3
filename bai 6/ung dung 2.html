@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+
+  <tbody><tr>
+    <th><label for="Amount">Amount</label></th>
+    <th>From Currency</th>
+    <th>To Currency</th>
+    <th></th> </tr>
+  <tr>
+    <td><input type="text" id="Amount"></td>
+    <td>
+      <select id="From">
+        <option value="VND">VND</option>
+        <option value="USD">USD</option>
+      </select>
+    </td>
+    <td>
+      <select id="To">
+        <option value="VND">VND</option>
+        <option value="USD">USD</option>
+      </select>
+    </td>
+    <td><button onclick="ChangeMoney()">Convert</button></td>
+  </tr>
+  <script>
+  const price = 1
+  const USDollar = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+  });
+  const price1 = 23000
+  const VND = new Intl.NumberFormat('vi-VN', {
+  style: 'currency',
+  currency: 'VND',
+  });
+  document.write('Dollars: ' + USDollar.format(price)); // Dollars: $21,450.00
+  document.write('Việt Nam đồng: ' + VND.format(price1));
+  </script>
+</table>
+
+<
+</body>
+</html>
