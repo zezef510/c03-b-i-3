@@ -12,7 +12,7 @@
     <td> <button onclick="nhap (`(`)">(</button></td>
     <td> <button onclick="nhap (`)`)">)</button></td>
   <td> <button onclick="nhap (`%`)">%</button></td>
-  <td> <button  class="clearable"  >AC</button></td>
+  <td>  <button onclick="xoa (``)">AC</button> </td>
 </tr>
 
   <tr>
@@ -47,6 +47,10 @@
   }
   function tinh(){
     document.getElementById(`scr`).value = eval(document.getElementById(`scr`).value )
+  }
+  function xoa(){
+    document.getElementById(`scr`).value = ''
+
   }
 </script>
 
