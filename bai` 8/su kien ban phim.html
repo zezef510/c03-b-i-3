@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload="docReady()">
+<img id="bong" src="../quabong.png" style="position: absolute ; left: 0 ; top:  0" height="174" width="290"/>
+<script> function  upArr(){
+  let ele = document.getElementById(`bong`)
+  ele.style.top = parseInt(ele.style.top) - 5 + `px`;
+}
+function dowArr(){
+  let ele = document.getElementById(`bong`)
+  ele.style.top = parseInt(ele.style.top) + 5 + `px`;
+}
+function leftArr(){
+  let ele = document.getElementById(`bong`)
+  ele.style.left = parseInt(ele.style.left) - 5 + `px`;
+}
+function rightArr(){
+  let ele = document.getElementById(`bong`)
+  ele.style.left = parseInt(ele.style.left) + 5 + `px`;
+}
+ function  move (evt){
+  switch (evt.keyCode){
+    case 37:
+       leftArr();
+          break
+    case 39:
+       rightArr();
+          break
+    case 38 :
+            upArr( );
+          break
+    case 40 :
+       dowArr();
+  }
+ }
+  function docReady() {
+   window.addEventListener("keydown", move)
+  }
+</script>
+</body>
+</html>
