@@ -7,28 +7,20 @@
 <body>
 <script>
     let value = +prompt(`value?`, '')
-    let check = '';
-    if (value > 0) {
-        check = 'lon hon 0';
-    } else if (value < 0) {
-        check = 'nho hon 0'
-    } else {
-        check = 'bang 0'
-    }
 
-    switch (check) {
-        case 'lon hon 0':
-            alert(1);
+    switch(value){
+        case 0 :
+            alert(`0`)
+ break
+        case Math.abs(value):
+            alert(`so duong`)
+    break
+        default :
+            alert(`so am`)
             break
-        case 'nho hon 0':
-            alert(-1)
-            break
-        case 'bang 0':
-            alert(0);
     }
 
 
 </script>
 </body>
 </html>
-message = (login == 'Employee') ?'Hello' :(login == 'Director') ?'Greetings' :(login == '') ?'No login' :'';

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id = `a` />
+<input type="text" id = `b` />
+<input type="text" id = `c` />
+
+<button onclick="giaiphuongtrinh()">Giai phuong trinh</button>
+</body>
+<script>
+    function giaiphuongtrinh() {
+        let a = +document.getElementById(`a`).value
+        let b = +document.getElementById(`b`).value
+        let c = +document.getElementById(`c`).value
+        if (a === 0) {
+            if (b == 0) {
+                if (c == 0) {
+                    alert(`phuong trinh co vo nghiem`)
+                } else {
+                    alert(`phuong trinh vo nghiem`)
+                }
+            else
+                {
+                    alert(`phuong trinh co 1 nghiem la` + -c / b)
+                }
+            else
+                {
+                    let delta = b * b - 4 * a * c
+                    if (delta < 0) {
+                        alert(`phuong trinh vo nghiem`)
+                    } else if (delta == 0) {
+                        alert(`phuong trinh co 1 nghiem kep la ` + -b / (2 * a))
+                    } else {
+                        alert(`phuong trinh co 2 nghiem phan biet ` + (-b - Math.sqrt(delta) / (2 * a)))
+
+                    }
+                }
+            }
+        }
+    }
+
+
+
+</script>
+</html>
