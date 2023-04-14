@@ -8,16 +8,15 @@
 <script>
     let value = +prompt(`value?`, '')
 
-    switch(value){
-        case 0 :
-            alert(`0`)
- break
-        case Math.abs(value):
+    switch ( (value > 0) ? 1 : (value < 0) ? -1 : 0){
+        case 1 :
             alert(`so duong`)
-    break
-        default :
+            break
+        case -1 :
             alert(`so am`)
             break
+        default :
+            alert(`0`)
     }
 
 

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+
+
+
+<img src="../quabong.png" id="a" style="left: 300px; position: relative; width: 100px; top: 10px">
+<script>
+
+        setInterval(()=> {
+        document.getElementById('a').style.left = parseInt(document.getElementById('a').style.left) + 100 + 'px';
+        if(parseInt(document.getElementById('a').style.left) >= window.innerWidth) {
+        document.getElementById('a').style.left =  `0px`
+
+    }
+    }, 100)
+</script>
+
+
+
+
+</body>
+</html>
