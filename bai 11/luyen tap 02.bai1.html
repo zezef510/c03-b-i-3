@@ -6,13 +6,17 @@
 </head>
 <body>
 <script>
-  let a = prompt()
+  let aaa = prompt()
   let b = 0 , c = 1 , nextNb
-  for ( i = 1; i <=a  ; i++){
-    document.write(b+`<br>`)
-    nextNb =  b + c
-    b = c
-    c = nextNb
+  for (i = 1; i <=aaa  ; i++) {
+      if (c >= 100) {
+          break
+
+          document.write(b + `<br>`)
+          nextNb = b + c
+          b = c
+          c = nextNb
+      }
   }
 </script>
 </body>

@@ -7,12 +7,17 @@
 <body>
 <h1>Bang cuu chuong</h1>
 <script>
-    <table border="1" width :100px , height :200px/>
-    for ( i = 0 ; i < 10 ; i++){
-       bang = bang +"<tr>"
-
-        document.write(bang)
+    let str = ''
+    str += '<table>'
+    for (let i = 1; i <=10; i++) { // in hàng
+        str += '<tr>'
+        for (let k = 1; k <= 10; k++) { // in số
+            str += `<td style="width: 100px;height: 10px; border: 1px solid">${k}*${i}=${k*i}</td>`
+        }
+        str += '</tr>'
     }
+    str += '</table>'
+    document.write(str)
 </script>
 </body>
 </html>
