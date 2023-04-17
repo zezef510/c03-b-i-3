@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="gido"> Choi</button>
+<script>
+    while (number_check !== number_ran) {
+        count++;
+  function gido(c) {
+      let  a = prompt(`So ban muốn đoán trong khoảng nào `)
+      let b = prompt(`so ban doan'`)
+      let count = 0;
+
+      let number_ran = Math.floor(Math.random()*a)
+  while (b !== number_ran ){
+          count++
+  }
+      if (b !== number) {
+          alert(`chinh xac`)
+      } else if (b < number_ran) {
+          alert(`so ban doan be hon`)
+      } else
+          alert(`so ban doan lon hon `)
+      }
+  }
+  if (b == number_ran)
+      alert(`ban doan dung`)
+
+  function doanso() {
+      debugger;
+      let number = +prompt("Số bạn muốn đoán trong khoảng lớn nhất là bao nhiêu?")
+      let number_ran = Math.floor(Math.random() * number);
+      console.log(number_ran);
+      let number_check = +prompt ("Nhập số bạn đoán");
+      let count = 0;
+
+
+  }
+</script>
+</body>
+</html>
+
