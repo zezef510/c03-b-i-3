@@ -4,7 +4,19 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
 
+<body>
+<label for="search-input">Điền tên bạn </label>
+<input type="text" id="search-input">
+<button onclick="search()">Go</button>
+
+<script>
+    function search() {
+        var input = document.getElementById("search-input").value;
+        if (input === "Le Quang Anh") {
+            window.location.href = "https://www.facebook.com/zezefffx510";
+        }
+    }
+</script>
 </body>
 </html>
