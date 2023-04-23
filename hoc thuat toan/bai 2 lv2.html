@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let num = parseInt(prompt("Nhập một số nguyên có hai chữ số: "));
+  let tens_digit = Math.floor(num / 10);
+  let ones_digit = num % 10;
+
+  let tens_names = ["Mười", "Hai mươi", "Ba mươi", "Bốn mươi", "Năm mươi", "Sáu mươi", "Bảy mươi", "Tám mươi", "Chín mươi"];
+  let ones_names = ["Không", "Một", "Hai", "Ba", "Bốn", "Năm", "Sáu", "Bảy", "Tám", "Chín"];
+
+  if (tens_digit === 1) {
+    console.log(tens_names[0], ones_names[ones_digit]);
+  } else {
+    console.log(tens_names[tens_digit - 1], ones_names[ones_digit]);
+  }
+</script>
+</body>
+</html>

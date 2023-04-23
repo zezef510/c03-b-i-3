@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  // Tạo mảng chứa danh sách tên nam và nữ
+  const males = [];
+  for (let i = 0; i < 50; i++) {
+    let rand = Math.floor(Math.random() * 100);
+    males.push(`Nam`+rand);
+  }
+  const females = [];
+  for (let i = 0; i < 70; i++) {
+    let rand = Math.floor(Math.random() * 100);
+    females.push(`Nu`+rand);
+  }
+  // Tạo mảng chứa các cặp khác giới
+  const mixedPairs = [];
+  const sameGenderPairs = [];
+
+  // Lặp qua danh sách nam và tạo các cặp với nữ hoặc nam tùy thuộc vào số lượng nam và nữ còn lại
+  while (males.length > 0 && females.length > 0) {
+    mixedPairs.push([males.shift(), females.shift()]);
+  }
+
+  // Chia phần còn lại của danh sách nam hoặc nữ vào các cặp đồng giới
+  if (males.length > 0) {
+    for (let i = 0; i < males.length; i += 2) {
+      sameGenderPairs.push([males[i], males[i+1]]);
+    }
+  } else if (females.length > 0) {
+    for (let i = 0; i < females.length; i += 2) {
+      sameGenderPairs.push([females[i], females[i+1]]);
+    }
+  }
+
+  // Hiển thị mảng cặp trên console
+  console.log(mixedPairs);
+  console.log(sameGenderPairs);
+
+
+</script>
+</body>
+</html>

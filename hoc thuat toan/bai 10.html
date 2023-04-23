@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = prompt()
+    let b = prompt()
+    let c = prompt()
+
+     // Kiểm tra tính hợp lệ của các giá trị
+     if (a === b || a === c || b === c || a === 0 || b === 0 || c === 0) {
+         console.log("Các giá trị không hợp lệ");
+     } else {
+         let count = 0;
+         for (let i = 100; i < 1000; i++) {
+             let [x, y, z] = i.toString().split('');
+             // Kiểm tra xem các chữ số có thuộc a, b, c hay không
+             if ([a, b, c].includes(x) && [a, b, c].includes(y) && [a, b, c].includes(z)) {
+                 // Loại bỏ các số trùng lặp
+                 if (x !== y && x !== z && y !== z) {
+                     count++;
+                 }
+             }
+         }
+         console.log("Số lượng các số 3 chữ số có thể tạo ra từ a, b, c là:", count);
+ }
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  // Nhập giá trị cho a, b, c
+  var a = 1;
+  var b = 2;
+  var c = 3;
+
+  // Khởi tạo biến count và arr
+  var count = 0;
+  var arr = [];
+
+  // Tạo một vòng lặp for để duyệt qua tất cả các số từ 100 đến 999
+  for (var i = 100; i < 1000; i++) {
+
+    // Lấy các chữ số của số hiện tại
+    var firstDigit = Math.floor(i / 100);
+    var secondDigit = Math.floor((i % 100) / 10);
+    var thirdDigit = i % 10;
+
+    // Kiểm tra xem các chữ số có khác nhau và khác 0 hay không
+    if ((firstDigit != secondDigit) && (firstDigit != thirdDigit) && (secondDigit != thirdDigit) && (firstDigit != 0) && (secondDigit != 0) && (thirdDigit != 0)) {
+
+      // Kiểm tra xem các chữ số có trong danh sách [a, b, c] hay không
+      if ((firstDigit == a || firstDigit == b || firstDigit == c) && (secondDigit == a || secondDigit == b || secondDigit == c) && (thirdDigit == a || thirdDigit == b || thirdDigit == c)) {
+
+        // Thêm số hiện tại vào mảng arr
+        arr.push(i);
+
+        // Tăng biến count lên 1
+        count++;
+      }
+    }
+  }
+
+  // In ra số lượng các số 3 chữ số có thể tạo ra từ a, b, c
+  console.log(count);
+</script>
+</body>
+</html>

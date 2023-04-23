@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [];
+    let n = 10;
+    let V;
+
+    // Khởi tạo/nhập vào mảng
+    for(let i = 0; i < n; i++){
+        arr[i] = parseInt(prompt("Nhập phần tử thứ " + (i+1)));
+    }
+
+    // Nhập vào V
+
+
+    // Kiểm tra và xoá V khỏi mảng
+    let index = -1;
+    for(let i = 0; i < n; i++){
+        if(arr[i] === V || arr[i] === v){
+            index = i;
+            break;
+        }
+    }
+
+    if(index !== -1){
+        for(let i = index; i < n-1; i++){
+            arr[i] = arr[i+1];
+        }
+        arr[n-1] = 0;
+        console.log("Mảng sau khi xoá V: " + arr);
+    } else {
+        console.log("V không thuộc mảng");
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function readNumber(num) {
+    const onesPlace = ["", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín"];
+    const tensPlace = ["", "mười", "hai mươi", "ba mươi", "bốn mươi", "năm mươi", "sáu mươi", "bảy mươi", "tám mươi", "chín mươi"];
+
+    if (num === 0) return "không";
+
+    let result = "";
+    // Đọc hàng chục
+    if (Math.floor(num / 10) > 1) {
+      result += tensPlace[Math.floor(num / 10)];
+      if (num % 10 !== 0) {
+        result += " " + onesPlace[num % 10];
+      }
+    } else if (Math.floor(num / 10) === 1) {
+      result += "mười";
+      if (num % 10 !== 0) {
+        result += " " + onesPlace[num % 10];
+      }
+    } else {
+      result += onesPlace[num % 10];
+    }
+
+    return result;
+  }
+
+  const num = parseInt(prompt("Nhập số cần đọc:"));
+  console.log(readNumber(num));
+</script>
+
+</body>
+</html>

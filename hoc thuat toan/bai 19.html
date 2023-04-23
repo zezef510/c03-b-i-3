@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let number = [1 ,2 ,3 ,4 ,5 ,6 , 7 , 8 ,9]
+  let c = []
+  let sum = 15
+  for (let i= 0 ; i < number.length-1 ; i++){
+  for (let j= i+1 ; j < number.length    ; j++){
+    if ( number[i] + number[i]  === sum){
+       c.push([arr[i], arr[j]])
+    }
+  }
+  }
+  console.log(c)
+
+</script>
+</body>
+</html>
+<!--function findPairs(arr, target) {
+const pairs = [];
+const n = arr.length;
+for (let i = 0; i < n - 1; i++) {
+for (let j = i + 1; j < n; j++) {
+if (arr[i] + arr[j] === target) {
+pairs.push([arr[i], arr[j]]);
+}
+}
+}
+return pairs;
+}
+
+// Example usage:
+const arr = [2, 4, 6, 8, 10];
+const target = 12;
+const pairs = findPairs(arr, target);
+console.log(pairs); // [[2, 10], [4, 8]] -->

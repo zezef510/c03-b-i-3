@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  let arr = [1, 2,  3, 4, 5, -7, 8];
+  let max = arr[0]
+  let max2 = -1
+
+
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] > max) {
+        max2 = max;
+        max = arr[i];
+      } else if (arr[i] > max2 && arr[i] !== max && arr[i] > 0) {
+        max2 = arr[i];
+      }
+
+  }
+  console.log(max,max2)
+</script>
+</body>
+</html>

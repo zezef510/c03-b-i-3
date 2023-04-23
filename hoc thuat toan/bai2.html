@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  const numOfBanhDaNem = prompt(` nhap so`); // Số lượng bánh đa nem cần rán
+  const banhDaNemPerBatch = 9; // Số lượng bánh đa nem tối đa được rán trong một lần
+
+  let numOfBatch = 0; // Khởi tạo số lần rán
+
+  for (let i = 0; i < numOfBanhDaNem; i += banhDaNemPerBatch) {
+    if (numOfBanhDaNem - i >= banhDaNemPerBatch) {
+      numOfBatch++;
+    } else {
+      numOfBatch++;
+      break;
+    }
+  }
+
+  console.log(`Số lần tối thiểu phải rán: ${numOfBatch}`);
+</script>
+</body>
+</html>

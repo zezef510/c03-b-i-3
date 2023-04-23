@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let myArray = [1 , 2 , 4 ,5 ,6, 9,7 , 3 , 0]
+
+  let isIncreasing = true;
+
+  for (let i = 1; i < myArray.length; i++) {
+      if (myArray[i] < myArray[i - 1]) {
+          isIncreasing = false;
+          break;
+      }
+  }
+
+  console.log(isIncreasing); // true
+</script>
+</body>
+</html>

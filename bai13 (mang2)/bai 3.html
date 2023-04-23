@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let arr =[3,7,2,1,4,2,8,5]
+  let max =arr[0]
+  let tb = 0
+  for (let i = 0 ; i < arr.length ; i++){
+    tb += arr[i]
+    if(arr[i] > max){
+
+      max =arr[i]
+
+    }
+  }
+  document.write(`so lon nhat la `+ max + ` trung binh cua mang  `+ (tb/arr.length))
+
+</script>
+
+</body>
+</html>

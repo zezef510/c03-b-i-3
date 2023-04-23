@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function sumArray(mang){
+    let sum = 1;
+    for (let i = 0; i < mang.length; i++){
+      sum *= mang[i];
+    }
+
+    return sum;
+  }
+
+  let mang = [1, 5, 9, 10];
+  console.log(sumArray(mang));
+</script>
+</body>
+</html>
