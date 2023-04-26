@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quan ly san pham dt </title>
+</head>
+<body>
+
+<h2>Add New Product</h2>
+<label  for="add"></label><input type="text" id="add">
+<button onclick="addProductPhone()">Add</button>
+<h2>Display All Product</h2>
+<button onclick="reset()">RESET</button>
+
+<table id ="bangDs" style="height: 100px ;  width: 700px ;border: none ; padding: 10px "></table>
+<div id="edit"></div>
+</body>
+<style>
+    #bangDs {
+        border-collapse: collapse;
+    }
+
+    #bangDs td,
+    #bangDs th {
+        border: none;
+        padding: 10px;
+    }
+    #bangDs tr:nth-child(even) {
+        background-color: #c5e1a5;
+    }
+
+    #bangDs tr:nth-child(odd) {
+        background-color: #fff;
+    }
+</style>
+<script>
+    let productPhone = ["Sony Xperia", "Samsung Galaxy", "Nokia 6", "Xiaomi Redmi Note 4", "Apple iPhone 6s",
+        "Xiaomi Mi 5s Plus", "Apple iPhone 8s", "Fujitsu F-04E", "Oppo A71"];
+    displayAll()
+    function displayAll () {
+        let str = "   <tr>\n" +
+            "<td><h3> ProductName</h3></td>\n" +
+            `<td></td>\n` +
+            `<td style='color: red'>` + productPhone.length + `  products</td>\n` +
+            "</tr>"
+        for (let i = 0; i < productPhone.length; i++) {
+
+
+            str += `<tr><td>` + productPhone[i] + `</td>` +
+                `<th><button onclick="showFormEdit(` + i +`)" style="background: green ; color:  white ; font-family: 'Comic Sans MS'">Edit</button></th>` +
+                `<th><button  onclick="deleteProduct(`+ i +`)" style="background: green ; color:  white ; font-family: 'Comic Sans MS'">Delete</button></th></tr>`
+
+        }
+
+        document.getElementById("bangDs").innerHTML = str
+    }
+function addProductPhone (){
+        let productName = document.getElementById("add").value
+       document.getElementById("add").value = ''
+    productPhone.push(productName)
+    console.log(productPhone)
+    displayAll()
+
+
+}
+ function  deleteProduct (inDex){
+  productPhone.splice(inDex,1);
+  displayAll()
+ }
+ function showFormEdit(inDex){
+        let str
+     str = `<input type="text" id="editProduct" value="`+productPhone[inDex]+`">
+<button onclick="saveProduct  (`+ inDex +`)" style="font-family: 'Comic Sans MS'">Save</button>`
+     document.getElementById(`edit`).innerHTML=str
+ }
+ function saveProduct(inDex){
+        productPhone[inDex]= document.getElementById(`editProduct`).value
+     document.getElementById(`edit`).innerHTML = ``
+     displayAll()
+
+
+ }
+
+ function reset(elementId){
+         document.getElementById("bangDs").value = ""; // Đặt lại giá trị của input thành rỗng
+         document.getElementById("bangDs").selectedIndex = 0; // Đặt lại giá trị của select box về giá trị đầu tiên
+         document.getElementById("bangDs").checked = false; // Đặt lại giá trị của checkbox thành false
+ displayAll()`x`
+ }
+</script>
+</html>

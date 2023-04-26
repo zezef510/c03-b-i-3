@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function reverseArray(arr) {
+    for (let i = 0; i < arr.length / 2; i++) {
+      const temp = arr[i];
+      arr[i] = arr[arr.length - 1 - i];
+      arr[arr.length - 1 - i] = temp;
+    }
+    return arr;
+  }
+
+  // Ví dụ sử dụng hàm
+  let arr = [1, 2, 3, 4, 5];
+  console.log(reverseArray(arr)); // Output: [5, 4, 3, 2, 1]
+</script>
+</body>
+</html>

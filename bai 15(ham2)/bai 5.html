@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let chomSao1 =  [`Polaris`, `Aldebaran`, `Deneb`, `Vega`, `Altair`, `Dubhe` , `Regulus`]
+  let chomSao2 =  [`Ursa Minor`, `Tarurus`, `Cygnus`, `Lyra`, `Aquila`, `Ursa Major` , `Leo`]
+  function findConstellation(starName) {
+      for (let i = 0; i < chomSao1.length; i++) {
+          if (chomSao1[i] === starName) {
+              return chomSao2[i];
+          }
+      }
+      return null;
+  }
+document.gete
+  // Yêu cầu người dùng nhập tên ngôi sao
+  const starName = prompt("Enter the name of a star:");
+
+
+  // Tìm chòm sao tương ứng và hiển thị kết quả cho người dùng
+  const constellationName = findConstellation(starName);
+  if (constellationName) {
+      alert(`${starName} is in the ${constellationName} constellation.`);
+  } else {
+      alert(`Sorry, we couldn't find ${starName} in our database.`);
+  }
+</script>
+</body>
+</html>

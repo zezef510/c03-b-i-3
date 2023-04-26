@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  // Hàm tạo mảng ngẫu nhiên
+  function createRandomArray(length) {
+    let arr = [];
+    for (let i = 0; i < length; i++) {
+      arr.push(Math.floor(Math.random() * 100));
+    }
+    return arr;
+  }
+
+  // Bubble Sort
+  function bubbleSort(arr) {
+    let len = arr.length;
+    for (let i = 0; i < len - 1; i++) {
+      for (let j = 0; j < len - i - 1; j++) {
+        if (arr[j] > arr[j + 1]) {
+          let temp = arr[j];
+          arr[j] = arr[j + 1];
+          arr[j + 1] = temp;
+        }
+      }
+    }
+    return arr;
+  }
+
+  // Insertion Sort
+  function insertionSort(arr) {
+    let len = arr.length;
+    for (let i = 1; i < len; i++) {
+      let current = arr[i];
+      let j = i - 1;
+      while (j >= 0 && arr[j] > current) {
+        arr[j + 1] = arr[j];
+        j--;
+      }
+      arr[j + 1] = current;
+    }
+    return arr;
+  }
+
+  // Selection Sort
+  function selectionSort(arr) {
+    let len = arr.length;
+    for (let i = 0; i < len - 1; i++) {
+      let minIndex = i;
+      for (let j = i + 1; j < len; j++) {
+        if (arr[j] < arr[minIndex]) {
+          minIndex = j;
+        }
+      }
+      let temp = arr[i];
+      arr[i] = arr[minIndex];
+      arr[minIndex] = temp;
+    }
+    return arr;
+  }
+
+  // Quick Sort
+  function quickSort(arr, left, right) {
+    let len = arr.length;
+    let index;
+    if (len > 1) {
+      index = partition(arr, left, right);
+      if (left < index - 1) {
+        quickSort(arr, left, index - 1);
+      }
+      if (index < right) {
+        quickSort(arr, index, right);
+      }
+    }
+    return arr;
+  }
+
+  function partition(arr, left, right) {
+    let pivot = arr[Math.floor((right + left) / 2)];
+    let i = left,
+            j = right;
+    while (i <= j) {
+      while (arr[i] < pivot) {
+        i++;
+      }
+      while (arr[j] > pivot) {
+        j--;
+      }
+      if (i <= j) {
+        swap(arr, i, j);
+        i++;
+        j--;
+      }
+    }
+    return i;
+  }
+
+  function swap(arr, a, b) {
+    let temp = arr[a];
+    arr[a] = arr[b];
+    arr[b] = temp;
+  }
+
+  // Merge Sort
+  function mergeSort(arr) {
+    let len = arr.length;
+    if (len < 2) {
+      return arr;
+    }
+    let mid = Math.floor(len / 2),
+            left = arr.slice(0, mid),
+            right = arr.slice(mid);
+    return merge(mergeSort(left), mergeSort(right));
+  }
+
+  function merge(left, right) {
+    let result = [],
+            lLen = left.length,
+            rLen = right.length,
+            l = 0,
+            r = 0;
+    while (l < lLen && r < rLen) {
+      if (left[l] < right[r]) {
+        result.push(left[l++]);
+      } else {
+        result.push(right[r++]);
+      }
+    }
+    return result.concat(left.slice(l)).concat(right.slice(r));
+  }
+
+  // Heap Sort
+  function heapSort(arr) {
+    let len = arr.length;
+
+    for (let i = Math.floor(len / 2); i >= 0; i--) {
+      heapify(arr, len, i);
+    }
+
+    for (let i = len - 1; i > 0; i--) {
+      swap(arr, 0, i);
+      heapify(arr, i, 0);
+    }
+
+    return arr;
+  }
+
+  function heapify(arr, len, i) {
+    let largest = i,
+            left = 2 * i + 1,
+            right = 2 * i + 2;
+
+    if (left < len && arr[left] > arr[largest]) {
+      largest = left;
+    }
+
+    if (right < len && arr[right] > arr[largest]) {
+      largest = right;
+    }
+
+    if (largest !== i) {
+      swap(arr, i, largest);
+      heapify(arr, len, largest);
+    }
+  }
+
+  // Tạo mảng ngẫu nhiên
+  let arr = createRandomArray(50);
+
+  // Sắp xếp và hiển thị kết quả
+  console.log("Mảng ban đầu: ", arr);
+  console.log("Bubble Sort: ", bubbleSort([...arr]));
+  console.log("Insertion Sort: ", insertionSort([...arr]));
+  console.log("Selection Sort: ", selectionSort([...arr]));
+  console.log("Quick Sort: ", quickSort([...arr], 0, arr.length - 1));
+  console.log("Merge Sort: ", mergeSort([...arr]));
+  console.log("Heap Sort: ", heapSort([...arr]));
+</script>
+</body>
+</html>

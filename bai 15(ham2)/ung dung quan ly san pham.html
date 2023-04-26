@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Quan ly san pham dien thoai</title>
+</head>
+<body>
+<h1>quan ly </h1>
+
+<!-- FORM ADD PRODUCT -->
+<form>
+    <label for="productName"></label><input type="text" id="productName">
+    <button type="button" onclick="addProductToList()">Add</button>
+</form>
+
+<!-- FORM EDIT PRODUCT -->
+<form>
+    <label for="editProductName"></label><input type="text" id="editProductName">
+    <button type="button" onclick="editProductInList()">Edit</button>
+</form>
+
+<!-- TABLE PRODUCT LIST -->
+<table border="1px" style="border: 1px whitesmoke solid ; background: white ; width : 1000px ; height: 200px " >
+    <thead>
+    <tr>
+        <th colspan="4">STT</th>
+
+
+    </tr>
+    </thead>
+    <tbody id="productTable"></tbody>
+</table>
+
+<script>
+    // Mảng sản phẩm ban đầu
+    let productList = ["Sony Xperia", "Samsung Galaxy", "Nokia 6", "Xiaomi Redmi Note 4", "Apple iPhone 6s", "Xiaomi Mi 5s Plus", "Apple iPhone 8s", "Fujitsu F-04E", "Oppo A71"];
+
+    // Tạo bảng hiển thị danh sách sản phẩm
+    function displayProductList(productList) {
+        let tableBody = document.getElementById('productTable');
+        tableBody.innerHTML = '';
+
+        for (let i = 0; i < productList.length; i++) {
+
+            let product = productList[i];
+
+            // Tạo một hàng mới
+            let row = document.createElement('tr');
+
+            // Tạo cột STT
+            let indexCell = document.createElement('td');
+            indexCell.textContent = i + 1;
+            row.appendChild(indexCell);
+
+            // Tạo cột Tên sản phẩm
+            let nameCell = document.createElement('td');
+            nameCell.textContent = product;
+            nameCell.addEventListener('click', function() {
+                selectProductForEdit(i);
+            });
+            row.appendChild(nameCell);
+
+            // Tạo cột nút xoá
+            let deleteCell = document.createElement('td');
+            let deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Xoa';
+            deleteButton.addEventListener('click', function() {
+                deleteProductFromList(i);
+            });
+            deleteCell.appendChild(deleteButton);
+            row.appendChild(deleteCell);
+
+            // Thêm hàng vào tbody
+            tableBody.appendChild(row);
+        }
+    }
+
+    // Thêm một sản phẩm vào danh sách và cập nhật bảng
+    function addProductToList() {
+        let productNameInput = document.getElementById('productName');
+        let productName = productNameInput.value.trim();
+        if (productName) {
+            productList.push(productName);
+            displayProductList(productList);
+            alert('Them thanh cong !');
+            productNameInput.value = '';
+        } else {
+            alert('Nhap ten san pham truoc khi them!');
+        }
+    }
+
+    // Chọn một sản phẩm để sửa
+    let selectedProductIndex = -1;
+
+    function selectProductForEdit(index) {
+        selectedProductIndex = index;
+        let productNameInput = document.getElementById('editProductName');
+        productNameInput.value = productList[index];
+    }
+
+    // Sửa tên của một sản phẩm trong danh sách và cập nhật bảng
+    function editProductInList() {
+        let editProductNameInput = document.getElementById('editProductName');
+        let newProductName = editProductNameInput.value.trim();
+        if (selectedProductIndex !== -1 && newProductName) {
+            let oldProductName = productList[selectedProductIndex];
+            productList[selectedProductIndex] = newProductName;
+            displayProductList(productList);
+            alert('Sửa sản phẩm thành công!');
+        } else {
+            alert('Chọn một sản phẩm và nhập tên mới để sửa!');
+        }
+        editProductNameInput.value = '';
+    }
+
+    // Xoá một sản phẩm khỏi danh sách và cập nhật bảng
+    function deleteProductFromList(index) {
+        if (confirm('Ban co muon xoa san pham nay khong?')) {
+            productList.splice(index, 1);
+            displayProductList(productList);
+            alert('Xoa san pham thanh cong!');
+        }
+    }
+
+    // Gọi hàm hiển thị danh sách sản phẩm khi trang được tải lên
+    displayProductList(productList);
+
+
+</script>
+</body>
+</html>

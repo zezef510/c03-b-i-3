@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>Click the button to increase the number:</p>
+<button onclick="increaseNumber()">Increase Number</button>
+<p id="result"></p>
+
+<script>
+  function increaseNumber() {
+    var number = 10; // replace with your desired initial value
+    number++;
+    document.getElementById("result").innerHTML = "The new number is: " + number;
+  }
+</script>
+
+
+</body>
+</html>
