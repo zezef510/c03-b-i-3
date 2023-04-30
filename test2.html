@@ -1,19 +1,112 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title></title>
+    <style type="text/css">
+        table {
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+
+        td {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            text-align: center;
+            font-size: 48px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-<script>
-    function  number (){
-        for (i= 1  ; i < 100 ; i++){
-            let sum = 1
-            if( i% 2 === 0 ){
-                sum = sum*i
-\            }
+
+<h1>game x o</h1>
+<table>
+    <tr>
+        <td id="cell00" onclick="markCell('cell00')"></td>
+        <td id="cell01" onclick="markCell('cell01')"></td>
+        <td id="cell02" onclick="markCell('cell02')"></td>
+    </tr>
+    <tr>
+        <td id="cell10" onclick="markCell('cell10')"></td>
+        <td id="cell11" onclick="markCell('cell11')"></td>
+        <td id="cell12" onclick="markCell('cell12')"></td>
+    </tr>
+    <tr>
+        <td id="cell20" onclick="markCell('cell20')"></td>
+        <td id="cell21" onclick="markCell('cell21')"></td>
+        <td id="cell22" onclick="markCell('cell22')"></td>
+    </tr>
+</table>
+
+<script type="text/javascript">
+
+        var currentPlayer = "X";
+    var board = [
+        ["", "", ""],
+        ["", "", ""],
+        ["", "", ""]
+    ];
+
+    function markCell(cell) {
+        if (document.getElementById(cell).innerHTML === "") {
+            document.getElementById(cell).innerHTML = currentPlayer;
+            updateBoard(cell);
+            checkWinner();
+            switchPlayer();
+        }
+    }
+
+    function updateBoard(cell) {
+        var row = cell.charAt(4);
+        var col = cell.charAt(5);
+        board[row][col] = currentPlayer;
+    }
+
+    function switchPlayer() {
+        if (currentPlayer === "X") {
+            currentPlayer = "O";
+        } else {
+            currentPlayer = "X";
+        }
+    }
+
+    function checkWinner() {
+        for (let i = 0; i < 3; i++) {
+            if (board[i][0] === currentPlayer && board[i][1] === currentPlayer && board[i][2] === currentPlayer) {
+                alert(currentPlayer + " wins!");
+                resetBoard();
+            } else if (board[0][i] === currentPlayer && board[1][i] === currentPlayer && board[2][i] === currentPlayer) {
+                alert(currentPlayer + " wins!");
+                resetBoard();
+            }
+        }
+
+        if (board[0][0] === currentPlayer && board[1][1] === currentPlayer && board[2][2] === currentPlayer) {
+            alert(currentPlayer + " wins!");
+            resetBoard();
+        } else if (board[0][2] === currentPlayer && board[1][1] === currentPlayer && board[2][0] === currentPlayer) {
+            alert(currentPlayer + " wins!");
+            resetBoard();
+        }
+    }
+
+    function resetBoard() {
+        currentPlayer = "X";
+        board = [
+            ["", "", ""],
+            ["", "", ""],
+            ["", "", ""]
+        ];
+
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 3; j++) {
+                document.getElementById("cell" + i + j).innerHTML = "";
+            }
         }
     }
 </script>
+
 </body>
 </html>
+

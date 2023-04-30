@@ -1,13 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+<h3>Add New Product</h3>
+<label><input type="text" id="themm"></label>
+<button onclick="addProduct1()">Add</button>
+<table id ="caiBang" style="height: 100px ; width: 700px  ">   </table>
+<div id="edit"></div>
+<style>
+    body {
+        background-image: url("canhdong.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
 
- <script>
+    #caiBang {
+        border-collapse: collapse;
+    }
 
- </script>
+    #caiBang td,
+    #caiBang th {
+        border: none;
+        padding: 10px;
+    }
+    #caiBang tr:nth-child(even) {
+        background-color: #c5e1a5;
+    }
+
+    #caiBang tr:nth-child(odd) {
+        background-color: #fff;
+
+    }
+
+</style>
+
+<script>
+    let listPhone = [ `sony` , `ss galaxy` , `nokia6` ,`xiaomi`,`iphone 6`,` fujitsu`,`oppo`]
+ displayAll()
+    function displayAll(){
+        let str =  `<tr>\n`+
+               `<td style="background-color:#c5e1a5"><h2>  Product Name </h2></td>\n`+
+               `<td style="background-color: #c5e1a5"></td>`+
+            `<td style=" background-color: #c5e1a5">`+listPhone.length + `products</td>\n`+
+            `</tr>`
+        for ( let i = 0 ; i < listPhone.length ; i++){
+            str += `<tr><td style="font-family: 'Comic Sans MS',serif">`+ listPhone[i] + `</td>`+
+                       `<th style="font-family: 'Corbel Light'"> <button style="background: aqua " onclick="editProduct(${i})">Edit</button> </th>`+
+                       `<th ><button  style="background: red ; color: white" onclick="deleteProduct(${i} )">Delete</button></th></tr>`
+
+        }
+        document.getElementById("caiBang").innerHTML = str
+
+    }
+    function addProduct1(){
+         let them = document.getElementById("themm").value
+         document.getElementById("themm").value = ""
+        listPhone.push(them)
+        displayAll()
+    }
+    function  deleteProduct(index){
+
+        listPhone.splice(index,1)
+        displayAll()
+    }
+    function editProduct(index){
+        let str
+        str = `<input type="text" id="chinhsua" value="${listPhone[index]}">`+
+        `<button onclick="luuProduct(${index})">Luu</button>`
+        document.getElementById(`edit`).innerHTML= str
+
+    }
+    function luuProduct(index){
+        listPhone[index] = document.getElementById("chinhsua").value
+        document.getElementById(`edit`).innerHTML= ""
+        displayAll()
+
+    }
+</script>
+
 </body>
+
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vn">
 <head>
     <meta charset="UTF-8">
     <title>Quan ly san pham dt </title>
@@ -41,12 +41,10 @@
         let str = "   <tr>\n" +
             "<td><h3> ProductName</h3></td>\n" +
             `<td></td>\n` +
-            `<td style='color: red'>` + productPhone.length + `  products</td>\n` +
+            `<td style='color: red' >` + productPhone.length + `  products</td>\n` +
             "</tr>"
         for (let i = 0; i < productPhone.length; i++) {
-
-
-            str += `<tr><td>` + productPhone[i] + `</td>` +
+            str += `<tr>    <td>` + productPhone[i] + `</td>` +
                 `<th><button onclick="showFormEdit(` + i +`)" style="background: green ; color:  white ; font-family: 'Comic Sans MS'">Edit</button></th>` +
                 `<th><button  onclick="deleteProduct(`+ i +`)" style="background: green ; color:  white ; font-family: 'Comic Sans MS'">Delete</button></th></tr>`
 
@@ -58,7 +56,6 @@ function addProductPhone (){
         let productName = document.getElementById("add").value
        document.getElementById("add").value = ''
     productPhone.push(productName)
-    console.log(productPhone)
     displayAll()
 
 
@@ -85,7 +82,7 @@ function addProductPhone (){
          document.getElementById("bangDs").value = ""; // Đặt lại giá trị của input thành rỗng
          document.getElementById("bangDs").selectedIndex = 0; // Đặt lại giá trị của select box về giá trị đầu tiên
          document.getElementById("bangDs").checked = false; // Đặt lại giá trị của checkbox thành false
- displayAll()`x`
+ displayAll()
  }
 </script>
 </html>

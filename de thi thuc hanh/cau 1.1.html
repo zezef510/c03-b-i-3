@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function findMax (point){
+    let max = point[0]
+    let max2 = -1
+    for (let i=0 ; i < point.length ; i++){
+      if (point[i] > max){
+        max2 = max
+        max = point[i]
+      }
+      else  if (point[i] > max2  && point[i] !== max){
+        point[i] = max2
+      }
+    }
+    return max2
+
+  }
+  let point = [7,8,9,10 ]
+  document.write()
+</script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game x o</title>
+</head>
+<h1> Game cờ ca ro</h1>
+
+<style >
+
+    table {
+        border-collapse: collapse;
+        margin: 0 auto;
+    }
+
+    td {
+        width: 50px;
+        height: 50px;
+        border: 1px solid ;
+        text-align: center;
+        font-size: 48px;
+        cursor: pointer;
+    }
+
+
+    </style>
+
+<body>
+
+<table id="bang" ></table>
+<div id="edit" >
+
+</div>
+<div style="text-align: center" >
+    <br>
+<button id="rs" style="background-color: aqua">Reset</button>
+</div>
+<script >
+    let Player1 = "X";
+    let board = [
+        ['', '', ''],
+        ['', '', ''],
+        ['', '', '']]
+    function hienThi() {
+        let str = ''
+        for (let row = 0; row < 3; row++) {
+            str += '<tr>'
+            for (let col = 0; col < 3; col++) {
+                str += `<td id="btn-${row}-${col}" onclick="nhap(${row}, ${col})" >`
+                str += '</td>'
+            }
+            str += '</tr>'
+        }
+        document.getElementById('bang').innerHTML = str
+    }
+    hienThi()
+
+    function nhap(row, col) {
+        if (board[row][col] === '') {
+            board[row][col] = Player1
+            let button = document.getElementById(`btn-${row}-${col}`)
+            button.innerText =Player1
+
+            checkWin()
+
+            Player1 = Player1 === 'X' ? 'O' : 'X'
+        }
+    }
+
+    function checkWin() {
+        for (let row = 0; row < 3; row++) {
+            if (board[row][0] !== '' && board[row][0] === board[row][1] && board[row][1] === board[row][2]) {
+                alert(`${board[row][0]} wins!`)
+                reset()
+            }
+        }
+        for (let col = 0; col < 3; col++) {
+            if (board[0][col] !== '' && board[0][col] === board[1][col] && board[1][col] === board[2][col]) {
+                alert(`${board[0][col]} wins!`)
+                reset()
+            }
+        }
+
+        if (board[0][0] !== '' && board[0][0] === board[1][1] && board[1][1] === board[2][2]) {
+            alert(`${board[0][0]} wins!`)
+            reset()
+        }
+        else if (board[0][2] !== '' && board[0][2] === board[1][1] && board[1][1] === board[2][0]) {
+            alert(`${board[0][2]} wins!`)
+            reset()
+
+        }
+    }
+
+    function reset() {
+        board = [
+            ['', '', ''],
+            ['', '', ''],
+            ['', '', '']
+        ]
+
+        currentPlayer = 'X'
+
+        for (let row = 0; row < 3; row++) {
+
+            for (let col = 0; col < 3; col++) {
+                let button = document.getElementById(`btn-${row}-${col}`)
+                button.innerText = ''
+
+            }
+        }
+    }
+    
+</script>
+</body>
+</html>

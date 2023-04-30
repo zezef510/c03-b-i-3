@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style type="text/css">
+  canvas {
+    border: 1px solid;
+  }
+</style>
+</body>
+<canvas id="myCanvas" width="400px"  height="200px"></canvas>
+<script type="text/javascript">
+   let cv0 = document.getElementById("myCanvas")
+   let cv1 = cv0.getContext("2d")
+   cv1.font = "30px  Arial"
+   cv1.fillText("Hello moi nguoi",50 , 100)
+</script>
+</html>
